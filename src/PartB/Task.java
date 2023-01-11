@@ -1,3 +1,5 @@
+package PartB;
+
 import java.util.concurrent.Callable;
 
 public class Task <T> implements Callable<T> {
@@ -19,7 +21,7 @@ public class Task <T> implements Callable<T> {
 
     /**
      * private default constructor , build new task throw createTask function
-     * the default of a task without TaskType is th IO TaskType
+     * the default of a task without PartB.TaskType is th IO PartB.TaskType
      * @param task - callable type of task
      */
     private Task( Callable task) {
@@ -28,11 +30,11 @@ public class Task <T> implements Callable<T> {
     }
 
     /**
-     * the real constructor of the Task class , is public and send the Task parameters to the private constructor
+     * the real constructor of the PartB.Task class , is public and send the PartB.Task parameters to the private constructor
      * @param task - callable type of task
-     * @param taskType -  enum TaskType - the name and priority of the task of the task
-     * @param <T> - Task is generic
-     * @return the new Task
+     * @param taskType -  enum PartB.TaskType - the name and priority of the task of the task
+     * @param <T> - PartB.Task is generic
+     * @return the new PartB.Task
      */
     public static <T>Task createTask(Callable task, TaskType taskType) {
        return (new Task(task , taskType));
@@ -40,10 +42,10 @@ public class Task <T> implements Callable<T> {
 
 
     /**
-     * the real constructor of the Task class , is public and send the Task parameters to the private constructor
+     * the real constructor of the PartB.Task class , is public and send the PartB.Task parameters to the private constructor
      * @param task - callable type of task
-     * @param <T>- Task is generic
-     * @return the new Task
+     * @param <T>- PartB.Task is generic
+     * @return the new PartB.Task
      */
     public static <T>Task createTask(Callable task) {
         return (new Task(task));
@@ -51,7 +53,7 @@ public class Task <T> implements Callable<T> {
 
 
     /**
-     * compare two tasks if they equal - same TaskType same callable
+     * compare two tasks if they equal - same PartB.TaskType same callable
      * @param task - the other task to compare with the current task
      * @return true if equal false if not
      */
@@ -76,15 +78,15 @@ public class Task <T> implements Callable<T> {
 
 
     /**
-     * get function to the TaskType
-     * @return the Tasks' TaskType
+     * get function to the PartB.TaskType
+     * @return the Tasks' PartB.TaskType
      */
     public TaskType getTaskType() {
         return taskType;
     }
 
     /**
-     * get function to the Task
+     * get function to the PartB.Task
      * @return the Callable task
      */
     public Callable getTask() {

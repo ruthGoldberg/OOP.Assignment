@@ -1,6 +1,7 @@
+package PartB;
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
-import java.util.Comparator;
 
 public class MyFutureTask<T> extends FutureTask implements Comparable <MyFutureTask<T>> {
     private int priority;

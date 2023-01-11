@@ -1,6 +1,6 @@
+package PartA;
+
 import java.io.*;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -72,34 +72,5 @@ public class Ex2_1 {
         }
 
         return lineCount;
-    }
-
-    public static void main(String[] args) {
-        String [] fileNames = new String[100];
-        fileNames = createTextFiles(100 , 8 , 1000);
-        Instant start = Instant.now();
-        int numOfLines = getNumOfLines(fileNames);
-        Instant end = Instant.now();
-        long time = Duration.between(start, end).toMillis();
-        System.out.println("Time using the 'getNumOfLines' function : " +time + " ms" );
-        System.out.println("Number of lines: "+numOfLines);
-
-        Ex2_1 help = new Ex2_1();
-        System.out.println("----------------------------------");
-        start = Instant.now();
-        numOfLines = help.getNumOfLinesThreads(fileNames);
-        end = Instant.now();
-        time = Duration.between(start, end).toMillis();
-        System.out.println("Time using the 'getNumOfLinesThreads' function : " +time + " ms");
-        System.out.println("Number of lines: "+numOfLines);
-        System.out.println("----------------------------------");
-
-        start = Instant.now();
-        numOfLines = help.getNumOfLinesThreadPool(fileNames);
-        end = Instant.now();
-        time = Duration.between(start, end).toMillis();
-        System.out.println("Time using the 'getNumOfLinesThreadPool' function : " +time + " ms");
-        System.out.println("Number of lines: "+numOfLines);
-
     }
 }

@@ -1,3 +1,5 @@
+package PartB;
+
 import java.util.concurrent.*;
 
 public class CustomExecutor <T> extends ThreadPoolExecutor {
@@ -17,11 +19,11 @@ public class CustomExecutor <T> extends ThreadPoolExecutor {
 
     /**
      * ---section 1---
-     *Submit method, creates a FutureTask with priority - MyFutureTask and executes
+     *Submit method, creates a FutureTask with priority - PartB.MyFutureTask and executes
      * in addition the function adds to the array of priorities 1 task at the right place
-     * @param task - Task object - callable type
-     * @param <V> - Task is generic
-     * @return our RunnableFuture - MyFutureTask
+     * @param task - PartB.Task object - callable type
+     * @param <V> - PartB.Task is generic
+     * @return our RunnableFuture - PartB.MyFutureTask
      */
     public <V> Future <V> submit( Task <V> task) {
         MyFutureTask futureTask = new MyFutureTask(task.getTask(), task.getTaskType().getPriorityValue());
@@ -33,11 +35,11 @@ public class CustomExecutor <T> extends ThreadPoolExecutor {
 
     /**
      * ---section 2---
-     * submit method , creates Task and sends it to the submit function above
+     * submit method , creates PartB.Task and sends it to the submit function above
      * @param task - callable type of task
-     * @param taskType - enum TaskType - the name and priority of the task of the task
+     * @param taskType - enum PartB.TaskType - the name and priority of the task of the task
      * @param <V> - Callable is generic
-     * @return the MyFutureTask the submit function of section 1 returns
+     * @return the PartB.MyFutureTask the submit function of section 1 returns
      */
     public <V> Future <V> submit(Callable<V> task, TaskType taskType) {
         return submit(Task.createTask( task, taskType));
@@ -45,17 +47,17 @@ public class CustomExecutor <T> extends ThreadPoolExecutor {
 
     /**
      * ---section 3---
-     * submit method , creates Task with default priority and sends it to the submit function above
+     * submit method , creates PartB.Task with default priority and sends it to the submit function above
      * @param task - callable type of task
      * @param <V> - Callable is generic
-     * @return the MyFutureTask the submit function of section 1 returns
+     * @return the PartB.MyFutureTask the submit function of section 1 returns
      */
     public <V> Future <V> submit(Callable<V> task) {
         return submit( Task.createTask(task));
     }
 
     /**
-     * this function captures the Task right before its executes and removes its priority
+     * this function captures the PartB.Task right before its executes and removes its priority
      * from the priorities array and saving the next in line priority -
      * the max priority - in this case is 1
      * @param t - the thread that will run the Runnable task
@@ -75,7 +77,7 @@ public class CustomExecutor <T> extends ThreadPoolExecutor {
 
     /**
      * ---section 10---
-     * this function returns the next Task in line using thr beforeExecute function
+     * this function returns the next PartB.Task in line using thr beforeExecute function
      * this function is O(1) because the loop is in the worst case goes throw all
      * the arrays which is constant number - 10
      * @return the max priority in the queue

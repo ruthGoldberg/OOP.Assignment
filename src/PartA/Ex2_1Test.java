@@ -1,9 +1,10 @@
+package PartA;
+
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.Instant;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class Ex2_1Test {
 
